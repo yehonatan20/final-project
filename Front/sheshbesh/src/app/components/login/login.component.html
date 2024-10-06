@@ -14,7 +14,7 @@
                 🌸
             </span>
         </div>
-        <form>
+        <form (submit)="onLogin(username.value, password.value, $event)">
             <div class="input-group">
                 <label for="username">Username:</label>
                 <input #username type="text" id="username" placeholder="Enter your username" required autocomplete="username">
@@ -33,7 +33,7 @@
             
 
             <div class="button-container">
-                <button type="submit" (click)="loginAuthService.login(username.value, password.value)" routerLink="/lobby" class="login-btn">Login</button>
+                <button type="submit" class="login-btn">Login</button>
                 <button type="button" (click)="playAsGuest()" class="guest-btn">Play as Guest</button>
             </div>
 

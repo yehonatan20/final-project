@@ -1,13 +1,15 @@
 import { AfterViewInit, Component, ViewChild, ElementRef } from '@angular/core';
 import { LoginAuthService } from '../../services/loginAuth/login-auth.service';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import * as Matter from 'matter-js';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, FormsModule],
+  imports: [RouterLink, FormsModule, HttpClientModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -21,10 +23,32 @@ export class LoginComponent implements AfterViewInit{
   hangingDiv!: Matter.Body;
   flowerLeftClicks = 0;
   flowerRightClicks = 0;
-  constructor(public loginAuthService: LoginAuthService){}
+  message: string = '';     // Feedback message to show in the UI
+
+  constructor(public loginAuthService: LoginAuthService, private router: Router){}
+
   playAsGuest(){
 
   }  
+
+  onLogin(identifier: string, password: string, event: Event) {
+    event.preventDefault();
+
+    // Call the login function of LoginAuthService
+    this.loginAuthService.login(identifier, password)
+      .subscribe(response => {
+        if (response.success) {
+          // If login is successful, navigate or show a success message
+          this.message = 'Login successful';
+          console.log('Logged in user:', response.user);
+          this.router.navigate(['/lobby']);
+        } else {
+          // If login fails, show an error message
+          this.message = response.message || 'Login failed. Please try again.';
+        }
+      });
+  }
+
   register() {
     const registrationUrl = '/register'; //registration route
     const windowFeatures = 'width=600,height=800,left=100,top=100'; // Customize as needed
