@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="columns">
+        <div class="left-column">
+            <h2 class="welcome-text">Welcome, PlayerName</h2>
+            
+            <div class="button-container">
+                <button class="nav-btn">Profile</button>
+                <button class="nav-btn">Shop</button>
+                <button class="nav-btn">Create Room</button>
+                <button class="nav-btn">Private Messages</button>
+                <img style=width:350px; src="../../../assets/images/kitty-face-diagonal.png"/>
+            </div>
+        </div>
+
+        <div class="center-column">
+            <div class="rooms-box">
+                <h3>Public Rooms: Join and Play Now!</h3>
+                <div class="text-area">
+
+                </div>
+                <!-- Dynamic room content goes here -->
+            </div>
+            
+            <div class="chat-box">
+                <h3>Lobby Chat: Please be nice!</h3>
+                <div class="text-area">
+                    <div *ngFor="let message of messages" class="message">
+                        {{ message }}
+                    </div>
+                </div>
+                <div class="input-area">
+                    <input 
+                        [(ngModel)]="newMessage" 
+                        placeholder="Enter your message" 
+                        class="message-input"
+                        id="newMessage"
+                        (keyup.enter)="sendMessage()"
+                    />
+                    <button class="emoji-btn">😊</button>
+                    <button (click)="sendMessage()" class="send-btn">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <div class="skin-buttons">
+                <span>Skins:</span>
+                <button class="skin-btn checker-skin">Checker</button>
+                <button class="skin-btn board-skin">Board</button>
+            </div>
+            
+            <button class="logout-btn">Log Out</button>
+        </div>
+    </div>
+</div>

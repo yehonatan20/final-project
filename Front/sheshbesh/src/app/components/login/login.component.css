@@ -1,0 +1,164 @@
+.canvas-container {
+    position: fixed; /* Fix to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1; /* Ensure it sits below the UI */
+    visibility: hidden;
+
+}
+
+
+.container {
+    position: relative; /* Keep it relative for stacking context */
+    z-index: 2; /* Stack above the canvas */
+    padding-top: 20%;
+}
+
+.login-box {
+    background-color: #fff0f5; /* Light pink background */
+    border-radius: 15px;
+    padding: 20px;
+    width: 80%; /* Adjusted width */
+    max-width: 400px; /* Maximum width */
+    margin: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column; /* Column layout */
+    justify-content: center;
+    align-items: center; /* Center items */
+}
+
+.title {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #ff69b4; /* Hot pink */
+    margin-bottom: 15px;
+    text-align: center; /* Center text */
+}
+
+.flower-container {
+    display: flex;                /* Use flexbox layout */
+    align-items: center;         /* Center items vertically */
+    justify-content: center;      /* Center items horizontally */
+}
+
+.flower {
+    cursor: pointer;              /* Change cursor on hover */
+    margin: 0 20px;              /* Add space between flowers and title */
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column; /* Stack label and input vertically */
+    width: 100%; /* Full width */
+    margin-bottom: 15px; /* Spacing between inputs */
+}
+
+label {
+    color: #ff1493; /* Deep pink */
+    margin-bottom: 3px; /* Reduced margin */
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%; /* Full width */
+    padding: 10px;
+    border: 1px solid #ff69b4;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically */
+    width: 100%; /* Full width */
+    margin: 15px 0; /* Margin for spacing */
+}
+
+.options input[type="checkbox"] {
+    margin-right: 5px; /* Space between checkbox and label */
+    cursor: pointer;
+}
+
+.options label{
+    cursor: pointer;
+}
+
+.social-text {
+    margin: 10px 0;
+    font-size: 16px; /* Adjusted size */
+    color: #ff69b4; /* Pink color */
+    text-align: center; /* Center the text */
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Full width */
+    margin: 15px 0;
+}
+
+.login-btn,
+.guest-btn {
+    flex: 1; /* Equal width for buttons */
+    padding: 12px; /* Increased padding */
+    background-color: #ff69b4; /* Hot pink */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px; /* Slightly bigger font */
+    cursor: pointer;
+    margin: 0 5px; /* Margin for spacing */
+    transition: background-color 0.3s ease, transform 0.2s; /* Smooth transition */
+}
+
+.register-btn{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 80px;
+    padding-right: 80px;
+    background-color: #ff69b4; /* Hot pink */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px; /* Slightly bigger font */
+    cursor: pointer;
+    margin: 0 5px; /* Margin for spacing */
+    transition: background-color 0.3s ease, transform 0.2s; /* Smooth transition */
+}
+
+.register-btn:hover,
+.login-btn:hover,
+.guest-btn:hover {
+    background-color: #ff1493; /* Deep pink */
+    transform: scale(1.05); /* Slight scale effect */
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+}
+
+.social-btn {
+    width: 40px; /* Square buttons */
+    height: 40px; /* Square buttons */
+    background-color: transparent; /* Transparent background */
+    border: none;
+    margin: 0 5px; /* Margin for spacing */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the icon */
+    transition: transform 0.2s; /* Smooth animation for hover */
+    cursor: pointer;
+}
+
+.social-btn:hover {
+    transform: scale(1.1); /* Scale up on hover */
+}
+
+.social-btn img {
+    width: 100%; /* Make the icon fill the button */
+    height: auto; /* Maintain aspect ratio */
+}

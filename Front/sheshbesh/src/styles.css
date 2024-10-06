@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0; /* Remove default margin */
+    height: 110vh; /* Full viewport height */
+    background-color: #f8AEC5; /* Solid color for the body */
+    background-image: url('assets/images/background.jpg'); /* Background image */
+    background-repeat: no-repeat; /* Prevent image from repeating */
+    background-position: top center; /* Position the image at the top center */
+    background-size: cover; /* Ensure the image covers the area */
+    user-select: none; /* Prevent text selection */
+}

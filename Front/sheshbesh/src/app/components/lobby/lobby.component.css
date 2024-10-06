@@ -1,0 +1,176 @@
+.container{
+    padding-top: 20%;
+    padding-bottom: 5%
+}
+
+.columns {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex; /* Flexbox for three-column layout */
+    background-color: #fff0f5; /* Light pink background */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.left-column {
+    flex: 1; /* Take up 1 part of the flex container */
+    margin-right: 20px; /* Spacing between columns */
+}
+
+h2{
+    margin-top:0;
+}
+
+h3{
+    margin-top:0;
+    color: #ff69b4;
+}
+
+.center-column {
+    flex: 2.25; /* Take up 2 parts of the flex container */
+    margin: 20px 20px 0px 0; /* Top and bottom margin for spacing */
+}
+
+.chat-box {
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(110, 110, 110, 0.5);
+}
+.text-area {
+    max-height: 200px; /* Set maximum height */
+    height: 200px;
+    overflow-y: auto; /* Allow scrolling */
+    background-color: rgba(55, 45, 45, 0.05); /* Soft light grey */
+    border-radius: 10px;
+    padding: 10px; /* Reduced padding */
+    margin-bottom: 10px; /* Remove all margins */
+    box-sizing: border-box; /* Ensure padding is included in height */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack messages vertically */
+    justify-content: flex-end; /* Align messages to the bottom */
+}
+
+.message {
+    margin: 5px 0; /* Spacing between messages */
+}
+
+.input-area {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center vertically */
+}
+
+.message-input {
+    flex: 1; /* Take up remaining space */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+    color: black; /* Input text color */
+    margin-right: 10px; /* Space between input and send button */
+}
+
+.emoji-btn {
+    padding: 10px;
+    background-color: #ff69b4; /* Pink background */
+    color: white; /* Emoji color */
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 10px; /* Space between emoji button and input */
+}
+
+.send-btn {
+    padding: 10px 15px;
+    background-color: #ff69b4; /* Pink background */
+    color: white; /* Send button text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.right-column {
+    flex: 0.25; /* Shorter right column */
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    justify-content: space-between; /* Space between skin buttons and logout */
+    margin-top: 100px;
+}
+
+.welcome-text {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #ff69b4;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+}
+
+.nav-btn {
+    margin-bottom: 30px; /* Spacing between buttons */
+    padding: 20px;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: #ff1493; /* Darker pink on hover */
+}
+
+.rooms-box,
+.chat-box {
+    margin-top: 20px; /* Spacing between boxes */
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+span{
+    margin-bottom:10px;
+    color: #ff69b4;
+}
+
+.skin-buttons {
+    display: flex;
+    flex-direction: column; /* Stack skin buttons vertically */
+    align-items: center; /* Center the buttons */
+}
+
+.skin-btn {
+    width: 80px; /* Square buttons */
+    height: 80px;
+    margin-bottom: 30px; /* Spacing between skin buttons */
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.skin-btn:hover {
+    background-color: #ff1493; /* Darker pink on hover */
+}
+
+.logout-btn {
+    padding: 10px 20px;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start; /* Align log out button to the left */
+}
+
+.logout-btn:hover {
+    background-color: #ff1493; /* Darker pink on hover */
+}

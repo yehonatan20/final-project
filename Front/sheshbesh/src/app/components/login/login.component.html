@@ -1,0 +1,53 @@
+<div class="canvas-container" #canvasContainer>
+    <!-- The Matter.js canvas will be inserted here -->
+</div>
+
+
+<div class="container">
+    <div class="login-box">
+        <div class="flower-container">
+            <span class="flower" (click)="handleFlowerClick(1)">
+                🌸
+            </span>
+            <h2 class="title"> Welcome to Our World! </h2>
+            <span class="flower" (click)="handleFlowerClick(2)">
+                🌸
+            </span>
+        </div>
+        <form>
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input #username type="text" id="username" placeholder="Enter your username" required autocomplete="username">
+            </div>
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input #password type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <div class="options">
+                <input type="checkbox" id="saveUsername" name="saveUsername" [(ngModel)]="saveUsername" (change)="onSaveUsernameChange()">
+                <label for="saveUsername">Save Username</label>
+                <input type="checkbox" id="rememberMe" name="rememberMe" [(ngModel)]="rememberMe" [disabled]="!saveUsername">
+                <label for="rememberMe">Remember Me</label>
+            </div>
+            
+            
+
+            <div class="button-container">
+                <button type="submit" (click)="loginAuthService.login(username.value, password.value)" routerLink="/lobby" class="login-btn">Login</button>
+                <button type="button" (click)="playAsGuest()" class="guest-btn">Play as Guest</button>
+            </div>
+
+            <button type="button" (click)="register()" class="register-btn">Register</button>
+
+            <p class="social-text">or log in with:</p>
+            <div class="social-login">
+                <button class="social-btn google-btn">
+                    <img src="assets/icons/google-icon.png" alt="Google" />
+                </button>
+                <button class="social-btn facebook-btn">
+                    <img src="assets/icons/facebook-icon.png" alt="Facebook" />
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
