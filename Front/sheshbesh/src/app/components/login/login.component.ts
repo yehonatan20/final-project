@@ -26,7 +26,7 @@ export class LoginComponent implements AfterViewInit{
 
   }  
   register() {
-    const registrationUrl = '/register'; // Change this to your actual registration route
+    const registrationUrl = '/register'; //registration route
     const windowFeatures = 'width=600,height=800,left=100,top=100'; // Customize as needed
     window.open(registrationUrl, '_blank', windowFeatures);
   }
