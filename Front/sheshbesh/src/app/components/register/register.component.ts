@@ -22,9 +22,9 @@ export class RegisterComponent {
       .subscribe(response => {
         if (response.success) {
           // If login is successful, navigate or show a success message
-          this.message = 'Register successful';
+          // this.message = response.message;
+          // console.log('Register user:', response.user);
           window.close();
-          console.log('Register user:', response.user);
         } else {
           // If login fails, show an error message
           this.message = response.message || 'Register failed. Please try again.';

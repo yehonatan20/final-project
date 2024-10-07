@@ -80,6 +80,9 @@ h3{
     margin-right: 10px; /* Space between emoji button and input */
 }
 
+.emoji-container{
+    position: relative;
+}
 .send-btn {
     padding: 10px 15px;
     background-color: #ff69b4; /* Pink background */

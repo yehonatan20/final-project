@@ -12,11 +12,7 @@ export class LoginAuthService {
   private isLoggedIn: boolean = false;  // Tracks login status
   private currentUser: any = null;      // Stores logged-in user info
  // username: string = '';
-//  isLogin = this.http.get<{message: string}>(this.loginUrl)
-//       .subscribe(
-//         data => this.message = data.message,
-//         error => console.error('Error fetching data:', error)
-//       );
+
  constructor(private http: HttpClient) { }
 
  // Function to perform login with backend API
@@ -44,14 +40,14 @@ export class LoginAuthService {
 }
 
   register(username:string, password:string, email:string): Observable<any> {
-    const body = { username, password, email};  // Data to be sent to the API
+    const body = { username, password, email };  // Data to be sent to the API
 
     return this.http.post<{ message: string, user: any }>(this.registerUrl, body).pipe(
       map(response => {
         if (response.user) {
           return { success: true, user: response.user };
         } else {
-          // If login fails, return failure
+          // If register fails, return failure
           return { success: false, message: response.message };
         }
       }),

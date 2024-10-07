@@ -4,17 +4,17 @@ import { SocketService } from '../../services/client/socket.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LoginAuthService } from '../../services/loginAuth/login-auth.service';
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
  
 @Component({
   selector: 'app-lobby',
   templateUrl: './lobby.component.html',
   styleUrls: ['./lobby.component.css'],
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, PickerModule],
   standalone: true
 })
 export class LobbyComponent implements OnDestroy {
-  flowerLeftClicks = 0;
-  flowerRightClicks = 0;
+  showEmojiPicker = false;
   private messageSubscription: Subscription;
   messages: string[] = [];
   newMessage: string = '';
@@ -26,6 +26,10 @@ export class LobbyComponent implements OnDestroy {
     this.messageSubscription = this.socketService.subscribeToChat().subscribe((data) => {
       this.messages.push(`${data.user}: ${data.msg}`);
     });
+  }
+
+  logout() {
+    
   }
  
   joinRoom() {
@@ -40,6 +44,14 @@ export class LobbyComponent implements OnDestroy {
       this.newMessage = '';
     }
   }
+
+  addEmoji(event: any) {
+    this.newMessage += event.emoji.native;  // Append the selected emoji to the input text
+  }
+
+  toggleEmojiPicker() {
+    this.showEmojiPicker = !this.showEmojiPicker;
+  }
  
   ngOnDestroy() {
     this.messageSubscription.unsubscribe();

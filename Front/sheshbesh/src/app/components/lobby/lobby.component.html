@@ -36,7 +36,18 @@
                         id="newMessage"
                         (keyup.enter)="sendMessage()"
                     />
-                    <button class="emoji-btn">😊</button>
+                    <button class="emoji-btn" (click)="toggleEmojiPicker()">😊</button>
+                    
+                    <div class="emoji-container">
+                        <emoji-mart
+                        *ngIf="showEmojiPicker"
+                        (emojiSelect)="addEmoji($event)"
+                        [set]="'apple'"
+                        [style]="{ position: 'absolute', bottom: '20px', left: '-50px'}"
+                        [emoji]="'grinning'"
+                        [showPreview]="false">
+                      </emoji-mart>
+                    </div>
                     <button (click)="sendMessage()" class="send-btn">Send</button>
                 </div>
             </div>
@@ -49,7 +60,7 @@
                 <button class="skin-btn board-skin">Board</button>
             </div>
             
-            <button class="logout-btn">Log Out</button>
+            <button class="logout-btn" (click)="logout()">Log Out</button>
         </div>
     </div>
 </div>

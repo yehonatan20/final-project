@@ -5,6 +5,7 @@ import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import * as Matter from 'matter-js';
 import { Router } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,7 @@ export class LoginComponent implements AfterViewInit{
   flowerRightClicks = 0;
   message: string = '';     // Feedback message to show in the UI
 
-  constructor(public loginAuthService: LoginAuthService, private router: Router){}
+  constructor(public loginAuthService: LoginAuthService, private router: Router, private popup: NotifierService){}
 
   playAsGuest(){
 
@@ -40,18 +41,19 @@ export class LoginComponent implements AfterViewInit{
         if (response.success) {
           // If login is successful, navigate or show a success message
           this.message = 'Login successful';
-          console.log('Logged in user:', response.user);
+          this.popup.notify('success', `Logged in user: ${this.loginAuthService.getCurrentUser()}`);
           this.router.navigate(['/lobby']);
         } else {
           // If login fails, show an error message
           this.message = response.message || 'Login failed. Please try again.';
+          this.popup.notify('error', this.message);
         }
       });
   }
 
   register() {
     const registrationUrl = '/register'; //registration route
-    const windowFeatures = 'width=600,height=800,left=100,top=100'; // Customize as needed
+    const windowFeatures = 'width=600,height=800'; // Customize as needed
     window.open(registrationUrl, '_blank', windowFeatures);
   }
   saveUsername = false;  // To track the state of "Save Username"
