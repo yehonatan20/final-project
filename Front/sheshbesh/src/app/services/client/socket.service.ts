@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { io, Socket } from 'socket.io-client';
+import { LoginAuthService } from '../loginAuth/login-auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -52,7 +53,10 @@ export class SocketService {
     return this.on('chat message');
   }
   joinRoom(room: any){
-    this.socket.emit('join room', room);
-  }
+    this.socket.emit('join room', room);
+  }
+  emitSetUsername(usernameData: string){
+    this.socket.emit('set username', usernameData);
+  }
 
 }

@@ -48,11 +48,13 @@ h3{
     box-sizing: border-box; /* Ensure padding is included in height */
     display: flex; /* Use flexbox */
     flex-direction: column; /* Stack messages vertically */
-    justify-content: flex-end; /* Align messages to the bottom */
+    /* justify-content: flex-end; Align messages to the bottom */
 }
 
 .message {
     margin: 5px 0; /* Spacing between messages */
+    text-wrap: wrap;
+    word-break: break-all;
 }
 
 .input-area {

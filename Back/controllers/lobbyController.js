@@ -1,5 +1,5 @@
 const defaultRoom = 'lobby';
-const rooms = {}; // Track which users are in which rooms
+const rooms = {}; // Track which rooms are exists
 const players = {}; // Track player roles
 
 export default (io) => {
@@ -8,11 +8,16 @@ export default (io) => {
 
         // Automatically join the default room
         socket.join(defaultRoom);
-        rooms[socket.id] = defaultRoom;
+        rooms[defaultRoom] = {};
 
-        socket.on('join room', (room) => {
+        socket.on('set username', (username) => {
+            players[socket.id] = username;
+        })
+
+        socket.on('join room', (room, username) => {
             // Leave the current room
             if (rooms[socket.id]) {
+                socket.to(rooms[socket.id]).emit('chat message', { user: 'Server', msg: `${username} has left the room!` });
                 socket.leave(rooms[socket.id]);
             }
 
@@ -66,6 +71,6 @@ function removePlayer(socketId) {
         if (players[role] === socketId) {
             delete players[role];
             break;
-        }
-    }
+        }
+    }
 }

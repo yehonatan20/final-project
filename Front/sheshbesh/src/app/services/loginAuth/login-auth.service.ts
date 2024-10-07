@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class LoginAuthService {
   private currentUser: any = null;      // Stores logged-in user info
  // username: string = '';
 
- constructor(private http: HttpClient) { }
+ constructor(private http: HttpClient, private router: Router) { }
 
  // Function to perform login with backend API
  login(identifier: string, password: string): Observable<any> {
@@ -61,6 +62,12 @@ export class LoginAuthService {
  isLoggedin(): boolean {
    return this.isLoggedIn;
   }
+
+  logout(): void {
+    this.isLoggedIn = false;
+    this.currentUser = null;
+    this.router.navigate(['/']);
+  }
 
   // Method to get the current user data
   getCurrentUser(): any {

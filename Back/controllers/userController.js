@@ -89,11 +89,4 @@ export const login = async(req,res) => {
         console.error('Login error:', error);
         res.status(500).json({success: false, message: 'An error occurred during login' });
     }
-    // const isExist = [];
-    // if (req.body.username && req.body.password)
-    //     isExist = await db.collection("Users").find({ $and: [ { username: req.body.username, password: req.body.password } ] }).toArray();
-    // if (isExist.length === 1)
-    //     res.status(200).json({"username": req.body.username});
-    // else
-    //     res.status(401).json();
 }

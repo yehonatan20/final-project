@@ -40,8 +40,8 @@ export class LoginComponent implements AfterViewInit{
       .subscribe(response => {
         if (response.success) {
           // If login is successful, navigate or show a success message
-          this.message = 'Login successful';
-          this.popup.notify('success', `Logged in user: ${this.loginAuthService.getCurrentUser()}`);
+          this.message = `Logged in user: ${this.loginAuthService.getCurrentUser().username}`;
+          this.popup.notify('success', this.message);
           this.router.navigate(['/lobby']);
         } else {
           // If login fails, show an error message
