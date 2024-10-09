@@ -67,6 +67,7 @@ export class LoginAuthService {
     this.isLoggedIn = false;
     this.currentUser = null;
     this.router.navigate(['/']);
+    
   }
 
   // Method to get the current user data

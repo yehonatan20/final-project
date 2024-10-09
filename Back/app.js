@@ -35,7 +35,8 @@ const io = new Server(server, {
         origin: process.env.CLIENT_URL,
         methods: ["GET", "POST"],
         credentials: true
-    }
+    },
+    connectionStateRecovery: {}
 });
 
 // Socket event handling

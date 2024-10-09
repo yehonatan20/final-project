@@ -28,9 +28,9 @@ export class SocketService {
     });
   }
 
-  emit(event: string, data: any) {
-    this.socket.emit(event, data);
-  }
+  // emit(event: string, data: any) {
+  //   this.socket.emit(event, data);
+  // }
 
   on(event: string) {
     if(event === 'chat message'){
@@ -54,6 +54,9 @@ export class SocketService {
   }
   joinRoom(room: any){
     this.socket.emit('join room', room);
+  }
+  joinLobby(room: any){
+    this.socket.emit('join lobby', room);
   }
   emitSetUsername(usernameData: string){
     this.socket.emit('set username', usernameData);

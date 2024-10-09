@@ -70,10 +70,15 @@ export class LobbyComponent implements OnDestroy, OnInit {
     this.popup.notify('info', `${this.username} disconnected`);
   }
  
-  joinRoom() {
+  joinRoom(room: string) {
+    this.room = room;
     if (this.room) {
       this.socketService.joinRoom(this.room);
     }
+  }
+
+  joinLobby() {
+    this.socketService.joinLobby(this.room);
   }
  
   sendMessage() {
