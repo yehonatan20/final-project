@@ -1,0 +1,32 @@
+.profile-container {
+    background-color: #f8AEC5; /* Retain the solid color */
+    height: 100vh; /* Full viewport height */
+    display: flex; /* Optional: for centering content */
+    justify-content: center; /* Optional: center horizontally */
+    align-items: center; /* Optional: center vertically */
+}
+
+.hidden {
+    display: none;
+}
+
+.profile-box {
+    background-color: #fff0f5; /* Light pink background */
+    border-radius: 15px;
+    padding: 20px;
+    width: 80%; /* Adjusted width */
+    max-width: 400px; /* Maximum width */
+    margin: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column; /* Column layout */
+    justify-content: center;
+    align-items: center; /* Center items */
+}
+
+.title {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #ff69b4; /* Hot pink */
+    margin-bottom: 15px;
+    text-align: center; /* Center text */
+}

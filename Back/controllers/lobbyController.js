@@ -14,19 +14,21 @@ export default (io) => {
         })
 
         socket.on('join lobby', (room) => {
+            socket.to(room).emit('chat message', { user: 'Server', msg: `${rooms[room][socket.id]} has left the room!` });
             socket.leave(room);
             rooms[defaultRoom][socket.id] = rooms[room][socket.id];
             delete rooms[room][socket.id];
             
             socket.join(defaultRoom);
+            socket.to(defaultRoom).emit('chat message', { user: 'Server', msg: `${rooms[defaultRoom][socket.id]} has joined the room!` });
             console.log(`${rooms[defaultRoom][socket.id]} joined room: ${defaultRoom}`);
         })
 
         socket.on('join room', (room) => {
             // Leave the current room
                 // socket.to(rooms[socket.id]).emit('chat message', { user: 'Server', msg: `${username} has left the room!` });
+            socket.to(defaultRoom).emit('chat message', { user: 'Server', msg: `${rooms[defaultRoom][socket.id]} has left the room!` });
             socket.leave(defaultRoom);
-            
             // Join the new room
             if(!rooms[room])
                 rooms[room] = {};
@@ -34,6 +36,7 @@ export default (io) => {
             delete rooms[defaultRoom][socket.id];
             // old
             socket.join(room);
+            socket.to(room).emit('chat message', { user: 'Server', msg: `${rooms[room][socket.id]} has joined the room!` });
             // rooms[socket.id] = room;
             console.log(`${rooms[room][socket.id]} joined room: ${room}`);
 

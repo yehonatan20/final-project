@@ -44,7 +44,7 @@ lobbyController(io);
 
 const start = async() => {
     try {
-        await mongoose.connect("mongodb+srv://yehonatan20:123@yehonatan.yylq3.mongodb.net/sheshbeshDB?retryWrites=true&w=majority&appName=yehonatan")
+        await mongoose.connect(process.env.MONGODB_URL_CONNECTION);
         server.listen(PORT, () =>{
             console.log(process.env.PORT);
             console.log(`Server is listening on port ${PORT}`);

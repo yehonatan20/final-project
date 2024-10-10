@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { LoginAuthService } from '../../services/loginAuth/login-auth.service';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-register',
@@ -10,10 +10,9 @@ import { LoginAuthService } from '../../services/loginAuth/login-auth.service';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-  private loginUrl: string = "http://localhost:3000/api/v1/login"; // Your backend login endpoint
   message: string = '';
 
-  constructor(private http: HttpClient, private registerService: LoginAuthService) {}
+  constructor(private registerService: LoginAuthService, private popup: NotifierService) {}
 
   register(event:Event ,username:string, password:string, email:string) {
     event.preventDefault();
@@ -28,6 +27,7 @@ export class RegisterComponent {
         } else {
           // If login fails, show an error message
           this.message = response.message || 'Register failed. Please try again.';
+          this.popup.notify('error', this.message);
         }
       });
   }

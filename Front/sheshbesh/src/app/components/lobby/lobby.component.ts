@@ -21,9 +21,9 @@ export class LobbyComponent implements OnDestroy, OnInit {
   newMessage: string = '';
   username: string = this.loginAuthService.getCurrentUser().username;
   room: string = '';
- 
+  
   @ViewChild('textArea') textArea!: ElementRef;
- 
+  
   constructor(private socketService: SocketService, private loginAuthService: LoginAuthService, private popup: NotifierService, private cdRef: ChangeDetectorRef) { }
   
   ngOnInit(): void {
@@ -34,6 +34,12 @@ export class LobbyComponent implements OnDestroy, OnInit {
       this.scrollToBottom();
     });
     this.socketService.emitSetUsername(this.username);
+  }
+  
+  showProfile() {
+    const profileUrl = '/profile'; //registration route
+    const windowFeatures = 'width=600,height=700'; // Customize as needed
+    window.open(profileUrl, '_blank', windowFeatures);
   }
   
   scrollToBottom(): void {
@@ -95,7 +101,7 @@ export class LobbyComponent implements OnDestroy, OnInit {
 
   toggleEmojiPicker() {
     this.showEmojiPicker = !this.showEmojiPicker;
-  }
+  }
  
   ngOnDestroy() {
     this.messageSubscription.unsubscribe();

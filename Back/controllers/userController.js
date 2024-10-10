@@ -30,9 +30,7 @@ async function userValidation(username, password, email) {
         if(user)
             return 'Username is already taken'
     }
-    if(password.length < 8)
-        return 'Password must be longer than 8 characters'
-
+    
     const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if(!regex.test(email))
         return 'Email is incorrect, must contains @ exmaple: XXX@XXX.XX'
@@ -42,6 +40,9 @@ async function userValidation(username, password, email) {
         if(user)
             return 'Email is already taken'
     }
+    
+    if(password.length < 8)
+        return 'Password must be longer than 8 characters'
     return '';
 }
 

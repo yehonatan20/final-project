@@ -35,7 +35,7 @@ export class LoginAuthService {
       }),
       catchError(error => {
         console.error('Login error:', error);
-        return of({ success: false, message: 'Login failed. Please try again.' });
+        return of({ success: false, message: error.error.message });
       })
     );
 }
@@ -53,8 +53,8 @@ export class LoginAuthService {
         }
       }),
       catchError(error => {
-        console.error('Login error:', error);
-        return of({ success: false, message: 'Login failed. Please try again.' });
+        console.error('Register error:', error);
+        return of({ success: false, message: error.error.message });
       })
     );
   }

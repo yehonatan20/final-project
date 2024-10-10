@@ -5,7 +5,8 @@
     justify-content: center; /* Optional: center horizontally */
     align-items: center; /* Optional: center vertically */
 }
-.login-box {
+
+.register-box {
     background-color: #fff0f5; /* Light pink background */
     border-radius: 15px;
     padding: 20px;
