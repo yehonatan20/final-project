@@ -7,6 +7,7 @@ import notFound from "./utilities/notFound.js";
 import lobbyController from './controllers/lobbyController.js'; // Import socket handler
 import { Server } from "socket.io";
 import http from 'http';
+import cookieParser from 'cookie-parser'
 
 
 
@@ -20,6 +21,7 @@ app.use(cors({
     credentials: true
 }));
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded());
 
 

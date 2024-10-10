@@ -40,7 +40,7 @@ async function userValidation(username, password, email) {
         if(user)
             return 'Email is already taken'
     }
-    
+
     if(password.length < 8)
         return 'Password must be longer than 8 characters'
     return '';
@@ -71,6 +71,9 @@ export const login = async(req,res) => {
         const isMatch = await user.comparePassword(password);
 
         if (isMatch) {
+            let token = jwt.sign({ id: user._id, username: user.username }, process.env.SECRET_KEY);
+            res.cookie('jwt', token, { httpOnly: true, secure: true});
+            res.cookie('username', user.username);
             // Password is correct, send success response
             res.status(200).json({
                 success: true,
@@ -80,7 +83,8 @@ export const login = async(req,res) => {
                     username: user.username,
                     email: user.email,
                     kittyCoins: user.kittyCoins
-                }
+                },
+                accessToken: token
             });
         } else {
             // Password is incorrect
