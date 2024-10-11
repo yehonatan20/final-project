@@ -1,4 +1,5 @@
 import User from "../models/User.js"
+import jwt from "jsonwebtoken"
 
 export const addUser = async(req,res) => {
     // need to add validations

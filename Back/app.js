@@ -8,6 +8,7 @@ import lobbyController from './controllers/lobbyController.js'; // Import socket
 import { Server } from "socket.io";
 import http from 'http';
 import cookieParser from 'cookie-parser'
+import gameController from "./controllers/gameController.js";
 
 
 
@@ -43,6 +44,7 @@ const io = new Server(server, {
 
 // Socket event handling
 lobbyController(io);
+gameController(io);
 
 const start = async() => {
     try {
