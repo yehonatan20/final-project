@@ -1,3 +1,4 @@
+let users = []
 let rooms = []
 let fullroom = false
 

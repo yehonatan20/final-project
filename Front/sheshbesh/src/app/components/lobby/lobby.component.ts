@@ -36,8 +36,14 @@ export class LobbyComponent implements OnDestroy, OnInit {
     this.socketService.emitSetUsername(this.username);
   }
   
+  goHome() {
+    const homeUrl = '/home'; //home route
+    const windowFeatures = 'width=1000,height=800'; // Customize as needed
+    window.open(homeUrl, '_blank', windowFeatures);
+  }
+
   showProfile() {
-    const profileUrl = '/profile'; //registration route
+    const profileUrl = '/profile'; //profile route
     const windowFeatures = 'width=600,height=700'; // Customize as needed
     window.open(profileUrl, '_blank', windowFeatures);
   }
